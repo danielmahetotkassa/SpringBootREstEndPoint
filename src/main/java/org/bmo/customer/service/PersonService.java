@@ -16,7 +16,7 @@ public interface PersonService {
 
 	public Person create(Person person);
 
-	public Person delete(int id);
+	public void delete(int id);
 
 	public List<Person> findAll();
 

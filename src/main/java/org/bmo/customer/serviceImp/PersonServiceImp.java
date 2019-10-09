@@ -50,12 +50,11 @@ public class PersonServiceImp implements PersonService {
 	}
 
 	@Override
-	public Person delete(int id) {
+	public void delete(int id) {
 		Person person = findById(id);
 		if (person != null) {
 			personDao.delete(person);
 		}
-		return person;
 	}
 
 	@Override

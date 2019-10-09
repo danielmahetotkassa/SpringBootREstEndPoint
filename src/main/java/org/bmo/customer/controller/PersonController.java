@@ -23,7 +23,7 @@ public class PersonController {
 
 	@GetMapping("/api/persons")
 	public List<Person> getAllPersons() {
-
+		System.out.println("api/persons");
 		List<Person> persons = personService.getPersons();
 		return persons;
 	}
@@ -37,11 +37,10 @@ public class PersonController {
 
 	@PostMapping
 	public void create(@RequestBody Person person) {
-
 		personService.create(person);
 	}
 
-	@GetMapping(path = { "/{first_name}" })
+	@GetMapping(path = { "/search/{first_name}" })
 	public List<Person> findByFirst_name(@PathVariable("first_name") String firstName) {
 		return personService.findByFirst_name(firstName);
 	}
@@ -54,12 +53,11 @@ public class PersonController {
 
 	@DeleteMapping(path = { "/{id}" })
 	public List<Person> delete(@PathVariable("id") int id) {
-		
+
 		personService.delete(id);
-		
+
 		return personService.findAll();
 
 	}
-
 
 }
